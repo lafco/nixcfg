@@ -22,7 +22,7 @@
         pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
 	in
     {
-		nixosConfigurations.nixos-personal = lib.nixosSystem {
+		nixosConfigurations.nixcfg = lib.nixosSystem {
                 inherit system;
 				modules = [
                     ./system/configuration.nix
