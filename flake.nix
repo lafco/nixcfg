@@ -9,12 +9,8 @@
             url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
         };
-        lanzaboote = {
-            url = "github:nix-community/lanzaboote/v0.3.0";
-            inputs.nixpkgs.follows = "nixpkgs";
-        };
     };
-    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, ... }@inputs:
+    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
 	let
 	    lib = nixpkgs.lib;
 	    system = "x86_64-linux";
@@ -26,7 +22,6 @@
                 inherit system;
 				modules = [
                     ./system/configuration.nix
-                    lanzaboote.nixosModules.lanzaboote
 				];
                 specialArgs = {
                     inherit pkgs-unstable;
