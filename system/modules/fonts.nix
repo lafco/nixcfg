@@ -4,6 +4,6 @@
   fonts.packages = with pkgs; [
     font-awesome 
     jetbrains-mono
-    nerd-fonts.JetBrainsMono
+    nerd-fonts.jetbrains-mono
   ];
 }
