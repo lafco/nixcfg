@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    gnome.adwaita-icon-theme # default gnome cursors
+    pkgs.adwaita-icon-theme
     glib 
     gsettings-desktop-schemas
 
