@@ -1,2 +1,2 @@
-require("gpskwlkr.core.options")
-require("gpskwlkr.core.keymaps")
+require("lafco.core.options")
+require("lafco.core.keymaps")

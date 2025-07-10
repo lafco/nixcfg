@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup({ { import = "gpskwlkr.plugins" }, { import = "gpskwlkr.plugins.lsp" } }, {
+require("lazy").setup({ { import = "lafco.plugins" }, { import = "lafco.plugins.lsp" } }, {
   install = {
     colorscheme = { "nightfly" },
   },

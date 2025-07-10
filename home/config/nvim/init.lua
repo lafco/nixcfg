@@ -1,2 +1,2 @@
-require("gpskwlkr.core")
-require("gpskwlkr.lazy")
+require("lafco.core")
+require("lafco.lazy")
