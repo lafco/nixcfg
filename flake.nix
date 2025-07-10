@@ -1,19 +1,21 @@
 {
     description = "Lafco NixOS";
-
     inputs = {
-	    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-        home-manager.url = "github:nix-community/home-manager/release-25.05";
+	    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+        nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
+        home-manager.url = "github:nix-community/home-manager/release-23.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
         firefox-addons = {
             url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        lanzaboote = {
+            url = "github:nix-community/lanzaboote/v0.3.0";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
-
-    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, ... }@inputs:
-	let 
+    outputs = { self, nixpkgs, nixpkgs-unstable, home-manager, lanzaboote, ... }@inputs:
+	let
 	    lib = nixpkgs.lib;
 	    system = "x86_64-linux";
 	    pkgs = nixpkgs.legacyPackages.${system};
@@ -23,13 +25,13 @@
 		nixosConfigurations.nixos-personal = lib.nixosSystem {
                 inherit system;
 				modules = [
-                    ./system/configuration.nix 
+                    ./system/configuration.nix
+                    lanzaboote.nixosModules.lanzaboote
 				];
                 specialArgs = {
                     inherit pkgs-unstable;
                 };
         };
-
 		homeConfigurations = {
 			lafco = home-manager.lib.homeManagerConfiguration {
 				inherit pkgs;
