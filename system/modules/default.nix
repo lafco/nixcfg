@@ -2,6 +2,7 @@
 
 {
     imports = [
+        ./boot.nix
         ./fonts.nix
         ./hardware.nix
         ./hyprland.nix
